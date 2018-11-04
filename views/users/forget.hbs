@@ -1,0 +1,35 @@
+<div class="user-reset">
+<div class="row send">
+<div class="col-md-12 col-md-offset-2 ">
+{{# if message }}
+<h6 class="text-center">{{ message }}</h6>
+
+{{/if}}
+
+<h6 class="text-center">{{ error }} </h6>
+</div>
+</div>
+
+<div class="row">
+		<div class="col-md-6 col-md-offset-2 center">
+		 <div class="card " >
+    <div class="card-body ">
+   <h3 class="text-center"> Forgot Password</h3>
+
+
+	
+				<form  class="forma"  action="/users/forgot" method="POST">
+				<div class="form-group">
+					{{ info }}
+						<label for="email"> Email Id</label>
+						<input type="email" id="email" name="email" placeholder="Enter Your Registered Email Id" class="form-control" required>
+				</div>
+
+				<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+				<input type="submit" id="forget"  name="forgot" class="btn btn-primary">
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</div>

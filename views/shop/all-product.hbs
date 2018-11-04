@@ -1,0 +1,54 @@
+
+	<div class="new_arrivals productcss">
+		<div class="container-fluid">
+		
+
+			{{# each products }}
+			<div class="row">
+			
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+						<!-- category 1 -->
+						{{# each this }}
+						<div class="product-item men">
+							<div class="product discount product_filter">
+								<div class="product_image ">
+									<a href="/product-description/{{this._id}}"> <img src="{{ this.imagePath }}" alt=""> </a>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name">{{ this.title }}</h6>
+									<div class="product_price">Rs {{ this.price }}<span>Rs 590.00</span></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="/add-to-cart/{{this._id}}">add to cart</a></div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+			
+
+			</div>
+			{{/each}}
+			
+{{#gt page totalPage }}
+<div class="previous col-md-8">
+<ul ">
+<a class="btn btn-primary prev" href = "/page/{{ math page "-" 1 }}"> <li> Previous </li> </a>
+</ul>
+<h3 class="text-center errh3"> You Are allready at the last page </h3>
+</div>
+{{/gt}}
+
+{{#ge totalPage page}}
+<div class="previous col-md-8">
+<ul>
+<a class="btn btn-primary prev" href = "/page/{{ math page "-" 1 }}"> <li> Previous </li> </a>
+<a class="btn btn-primary  pull-right " href = "/page/{{math page "+" 1}}"> <li> Next </li> </a>
+</ul>
+<div>
+{{/ge}}
+</div>
+</div>

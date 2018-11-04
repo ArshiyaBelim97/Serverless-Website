@@ -1,0 +1,60 @@
+<div class="checkout-form">
+
+{{# if products }}
+<div class="row">
+	<div class="col-sm-6 col-md-6 col-sm-offset-3">
+	<h2 class="headerh1"> Shopping Cart </h2>
+	<ul class="list-group">
+	{{# each products }}
+		<li class="list-group-item">
+		
+			<strong>{{this.item.title}}</strong>
+			<div class= "qtyy">
+			<h5><span class="label label-success">{{this.qty}}  * Rs.{{this.item.price}}</span></h5>
+			</div>
+			<div class="btn-group  pull-right">
+				<button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle = "dropdown" >
+					Action	<span class="caret"></span>
+				</button>
+					<ul class="dropdown-menu">
+						<li> <a href="/reduce/{{this.item._id}}">remove by 1</a> </li>
+						<li> <a href="/remove/{{this.item._id}}" > Remove All  </a> </li>
+					</ul>
+			</div>  
+
+		</li>
+		{{/each}}
+	</ul>
+	</div>
+</div>
+
+
+
+
+<div class="row ">
+	<div class="col-sm-6 col-md-6 col-sm-offset-3">
+	<div class="hfour">
+		<h4> <strong> Total: Rs. {{ totalPrice }} </strong> </h4>
+	</div> 
+	</div>
+
+</div>
+
+
+<div class="row btn">
+	<div class="col-sm-12 col-md-12 col-sm-offset-3">
+	<a href="/cod" type= "button" class="btn btn-success">Checkout</a>
+	</div>
+</div>
+
+
+{{else}}
+		<div class="row">
+			<div class="col-sm-8 col-md-8 ">
+				<h2 class="headerh1"> Cart is Empty</h2>
+			</div>
+		</div>
+
+{{/if}}
+
+</div>

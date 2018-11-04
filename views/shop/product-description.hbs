@@ -1,0 +1,193 @@
+
+  <meta charset="utf-8">
+  <title>Product</title>
+  <link
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+  crossorigin="anonymous">
+  <script
+  src="https://code.jquery.com/jquery-2.2.2.min.js"
+  integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+  integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+  crossorigin="anonymous"></script>
+  
+
+
+<style>
+    .input {
+        resize: horizontal;
+        width: 80px;
+        height:45px;
+    }
+
+    input:active {
+        width: auto;   
+    }
+
+    input:focus {
+        min-width: 80px;
+    }
+.mrp{
+      text-decoration: line-through;
+}
+
+.addto{
+  margin-top:10px;
+}
+.top-30{
+margin-top:30px;
+}
+
+.bottom-rule{
+  margin-top:-10px;
+}  
+
+.ht{
+  display: inline;
+}
+</style>  
+<div class="product-page">
+
+
+
+  <div class="container" id="product-section">
+  
+    <div class="row">
+      <div class="col-md-6">
+        <img src=" {{ prd.imagePath }}" alt="" class="image-responsive" width="480px" height="360px"/></div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>{{prd.title}}</h3>
+          </div>
+        </div><!-- end row -->
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <span class="badge badge-pill badge-primary">Author</span>
+            <span class="monospaced">{{prd.author}}</span>
+          </div>
+        </div><!-- end row -->
+</br>
+
+          <div class="row">
+           <div class="col-md-12 ">
+          <h4 class="product-price">M.R.P.: <span class="mrp">Rs. {{prd.price}}</span></h4> 
+          
+          </div>      
+
+            
+
+          <div class="col-md-6 bottom-rule">
+            <h4 class="product-price">Rs. {{prd.discount}}</h4>
+            <span> <h6> Inclusive of all taxes </h6></span>
+          </div>
+        </div><!-- end row -->  
+
+
+
+
+         <div class="row">
+          <div class="col-md-4 ">
+            <span class="monospaced"><h4>In Stock</h4></span>
+          </div>
+
+          
+        </div><!-- end row -->
+
+         <div class="row add-to-cart addto">
+          <div class="col-md-6 product-qty">
+          <label> Qty. </label>
+             <input class="input" type="number" value="1" min="1" max="1"/>
+            
+             <a href="/buy-now/{{prd._id}}">
+              <div class="btn btn-lg btn-primary btn-full-width pull-right"> Add to Cart </div>
+             </a>
+          </div>
+       
+
+        </div><!-- end row -->
+        
+        <div class="row">
+          <div class="col-md-12 bottom-rule top-10"></div>
+        </div><!-- end row -->
+
+        <div class="row">
+          <div class="col-md-12 top-30">
+            <p>To order by telephone, <a href="tel:9898962574">please call 9898962574</a></p>
+          </div>
+
+        </div><!-- end row -->
+
+    
+      </div><!-- end container -->
+
+</div>
+    <!-- Nav tabs -->
+   <ul class="nav nav-tabs product_margin">
+    <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+    <li><a data-toggle="tab" href="#menu1">Product Details</a></li>
+    
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3 > Product Description</h3>
+      <p>{{prd.description}}</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Product Details</h3>
+     
+      {{# if prd.paperback }}
+      {{br}}     
+      <label> Paperback : </label>
+      <h5 class="ht"> {{prd.paperback}} </h5>
+      {{/if}}
+      
+      {{# if prd.author }}   
+      <br>
+      <label> Author : </label>
+      <h5 class="ht"> {{prd.author}} </h5>
+      {{/if}}
+      
+
+      {{# if prd.publisher }}
+      <br>
+      <label> Publisher : </label>
+      <h5 class="ht"> {{prd.publisher}} </h5>
+      {{/if}}
+     
+
+      {{# if prd.language }}
+      <br>
+      <label> Language : </label>
+      <h5 class="ht"> {{prd.language}} </h5>
+      {{/if}}
+
+      {{# if prd.isbn10 }}
+      <br>
+      <label> ISBN-10 : </label>
+      <h5 class="ht"> {{prd.isbn10}} </h5>
+      {{/if}}
+
+      
+      {{#if prd.isbn13 }}
+      <br>
+      <label> ISBN-13 : </label>
+      <h5 class="ht"> {{prd.isbn13}} </h5>
+      {{/if}}
+      
+      
+    </div>
+    
+  </div>
+
+
+
+

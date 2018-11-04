@@ -1,0 +1,64 @@
+<script type = "text/javascript" >
+
+   function preventBack(){window.history.forward();}
+
+    setTimeout("preventBack()", 0);
+
+    window.onunload=function(){null};
+
+</script>
+
+
+<div class="user-form">
+<div class="row center">
+	<div class="col-md-4 col-md-offset-6 center ">
+	 <div class="card " >
+    <div class="card-body ">
+    <h2 class="card-title text-center">Sign up</h2>
+		
+			{{#if hasErrors }}
+			<div class="alert alert-danger">
+			{{# each messages }}
+			<p>{{ this }}</p>
+			{{/each}}
+			</div>
+			{{/if}}
+			
+			<form  class="forma"  action="/users/signup" method="POST">
+
+					<div class="form-group">
+						<label for="name"> Full Name </label>
+						<input type="text" id="name" name="name"  class="form-control"  required>
+					</div>
+
+					<div class="form-group">
+						<label for="mobile"> Mobile Number </label>
+						<input type="text" id="mobile" name="mobile"  class="form-control"   minlength="10" maxlength="10" required>
+					</div>
+
+					<div class="form-group">
+						<label for="email"> Email </label>
+						<input type="email" id="email" name="email"  class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label for="password"> Password </label>
+						<input type="password" id="password" name="password" class="form-control" maxLength="20" required>
+					</div>
+					<div class="form-group">
+						<label for="confirm_password">Confirm Password 
+						<span id='message'></span>
+						</label>
+						<input type="password" id="confirm_password" name="confirm" class="form-control" maxLength="20" required  onkeyup='check();'>
+					</div>
+					<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+					<input type="submit" id="signup"  name="Submit" class="btn btn-primary">
+					
+			</form>
+		</div>
+</div>
+
+</div>
+
+
+</div>
+</div>

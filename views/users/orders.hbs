@@ -1,0 +1,43 @@
+<div class="container">
+
+<div class="row">
+	<div class="col-md-12 col-offset-2">
+	<div class="profilehtag">	
+	
+		<h2 class="text-center"> My orders </h2>
+		
+	
+		{{# each orders }}
+		<div class="panel panel-default ">
+		 	<div class="panel-body">
+		    	<ul class="list-group ">
+		    	<li class="list-group-item ">
+		    	<strong> Order Id: {{ this._id }} <span class="pull-right"> Total Price: Rs. {{this.cart.totalPrice }}
+		    	</span></strong>
+		    	</li>
+		    	{{# each this.items }}
+ 					 <li class="list-group-item ">
+ 					 <span>  <img src="{{ this.imagePath }}" alt=""> </span>
+    					<span class="badge">{{this.item.title}} </span>
+    						 <span class="pull-right">  {{this.qty}}</span>
+  						</li>
+
+  					{{/each}}
+  					
+  					<a href="/users/cancel-order/{{this._id}}" class="btn btn-primary"> Cancel Order </a>
+				</ul>
+		  	<br>
+		  	</div>
+
+
+			</div>
+	{{/each}}
+	
+
+	</div>
+</div>
+
+
+
+</div>
+</div>
